@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cardView="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/carView"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_margin="@dimen/full_margin"
+        cardView:cardCornerRadius="4dp"
+        cardView:cardElevation="2dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/half_margin">
+
+            <TextView
+                android:id="@+id/value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:text="@{Double.toString(model.value)}"
+                cardView:layout_constraintLeft_toLeftOf="parent"
+                cardView:layout_constraintRight_toRightOf="parent"
+                cardView:layout_constraintStart_toStartOf="parent"
+                cardView:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/countryTitle"
+                style="@style/TextAppearance.Material3.BodyLarge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@{model.currency}"
+                cardView:layout_constraintLeft_toLeftOf="parent"
+                cardView:layout_constraintRight_toRightOf="parent"
+                cardView:layout_constraintStart_toStartOf="parent"
+                cardView:layout_constraintTop_toBottomOf="@id/value" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.android.vinod.domain.models.CurrencyModel" />
+
+    </data>
+</layout>
